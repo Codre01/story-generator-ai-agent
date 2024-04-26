@@ -1,0 +1,78 @@
+<div class="container">
+    <h1 class="text-center">SETTINGS</h1>
+    <div class="w-50 mx-auto mt-5">
+        <form>
+            <div class="form-group">
+                <div class="input-group">
+                    <label for="base_url">
+                        API URL:
+                        <input type="text" name="base_url" id="base_url" value="{{base_url}}" class="form-control"
+                            required>
+                    </label>
+                </div>
+                <div class="input-group">
+                    <label for="api_key">
+                        Enter your API KEY:
+                        <input type="text" name="api_key" id="api_key" value="{{api_key}}" class="form-control"
+                            required>
+                    </label>
+                </div>
+                <div class="input-group">
+                    <label for="model">
+                        AI Model:
+                        <input type="text" name="model" id="model" value="{{model}}" class="form-control" required>
+                    </label>
+                </div>
+            </div>
+            <button id="submitBtn" class="btn btn-primary mt-3 d-block mx-auto w-25">Save</button>
+        </form>
+    </div>
+
+</div>
+<script>
+
+    document.getElementById("submitBtn").addEventListener("click", handleSubmit);
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+        let base_url = document.getElementById("base_url").value;
+        let api_key = document.getElementById("api_key").value;
+        let model = document.getElementById("model").value;
+
+        if (!Validate.URL(base_url) || !base_url) {
+            alert("Enter a valid API URL");
+            return;
+        }
+        if (!Validate.string(api_key) || !api_key || api_key.length < 10) {
+            alert("Enter a valid API KEY");
+            return;
+        }
+        if (!Validate.string(model) || !model) {
+            alert("Enter a valid AI model");
+            return;
+        }
+
+        const settings = {
+            base_url: base_url,
+            api_key: api_key,
+            model: model
+        };
+
+        //save the settings to localStorage
+        localStorage.setItem("settings", JSON.stringify(settings));
+        alert("Settings saved successfully");
+        window.location.href = "/"
+    }
+
+    async function getLocalStorage(){
+        let settings = localStorage.getItem("settings");
+        if(settings){
+            settings = JSON.parse(settings);
+            document.getElementById("base_url").value = settings.base_url;
+            document.getElementById("api_key").value = settings.api_key;
+            document.getElementById("model").value = settings.model;
+        }
+    }
+
+    getLocalStorage();
+</script>

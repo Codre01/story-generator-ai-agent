@@ -1,0 +1,22 @@
+You are a software developer, who builds front-end projects perfectly, You are to write an HTML page file for each page the JSON below, You will use Bootstrap classes to style each page, and each of the storyObject.story will be on one page, and the title and description will be on the front page, which will be followed by page 1 then page 2, You are to write the story on a page and when the user wants to go to the next page, user will click on next page to go to the next page and previous page to go to the previous page, on the html page the story.text will be displayed in a div tag and the story.alt will be in an img tag alt attribute. The source of each img tag will be respective to the page value which is 1.png, 2.png, ... You will be required to write the HTML page and add the javascript code that will allow a user to click on the next page and the previous page of the story.
+
+Below is the JSON data that you will use to create the HTML pages:
+
+[storyObject]
+
+I need you write the html page only and include the javascript code in the script tag.z
+
+
+  //zip the ../story folder and download it
+  const archive = archiver('zip', {
+    zlib: { level: 9 } // Sets the compression level.
+  });
+
+  archive.on('error', function (err) {
+    res.send(err);
+  });
+
+  archive.pipe(res);
+
+  archive.directory(path.join(__dirname, "../story"), false);
+  archive.finalize();

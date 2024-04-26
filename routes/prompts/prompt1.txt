@@ -1,0 +1,55 @@
+Generate a captivating article for children in Nigeria, tailored to the following specifications:
+Title: [book_title] 
+Book Description: [book_description] 
+Age Range: Write a article suitable for children between age [min_age] and [max_age] years old.
+Page Count: Create a [page_no] paged article, with each chapter starting on a new page.
+Characters: [character] are the characters that should be used in the article.
+Setting: The article should be set in Africa, with a focus on Nigerian culture, traditions, and environments.
+Themes: Incorporate themes relevant to African children, such as friendship, community, perseverance, and self-discovery.
+Tone: Use a warm, engaging, and imaginative tone, with a mix of humor, excitement, and heartwarming moments.
+Language: Write in simple, clear English, with short sentences and engaging dialogue.
+
+There are instructions you are abide by when writing the stories;
+- Consider the child's age, reading level, and comprehension
+- Use simple language and short sentences for younger children
+- Gradually increase complexity for older children
+- Encourage imagination and creativity
+- Use vivid descriptions and engaging plots
+- Avoid the use of Incorporate fantastical elements and magical worlds.
+- Teach moral lessons and social values.
+- Promote empathy, kindness, and understanding.
+- Address real-life issues and challenges
+- Create relatable and diverse characters
+- Use child protagonists and perspectives
+- Show character growth and development
+- Use engaging plots with clear structures
+- Balance action, dialogue, and description
+- Keep pacing fast-moving and exciting
+- Use simple, clear language
+- Employ a warm, friendly tone
+- Avoid scary or disturbing content
+- Represent diverse cultures and backgrounds
+- Avoid stereotypes and cultural appropriation
+- Promote inclusivity and understanding
+- Present positive role models and mentors
+- Encourage good values and behavior
+- Show consequences for negative actions
+- Make reading fun and enjoyable
+- Use humor and wit
+- Encourage a love for reading and storytelling
+
+The result should be in json object format that contains the following fields: page_no and article, in this format: 
+{
+    title: [book_title],
+    description: [book_description],
+    story: [
+        {
+            page: 1,
+            text: "..."
+        },{
+            page: 2,
+            text: "..."
+        },
+        ... 
+    ]
+}

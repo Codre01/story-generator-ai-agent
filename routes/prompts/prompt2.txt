@@ -1,0 +1,25 @@
+Write an image description for a storybook which will be provided below, each page text from the storybook text that can used to portray the exact message each page passing across. The image description should tailored to African images, if there are characters in the description, they should be described to be African characters. Make your image description creative and captivating for each page.
+Each of the page image descriptions must start with "3D image rendering".
+Note that each of the pages is separated by ###, Your response on the image description should be in JSON object format.
+Here is the story book which each page has been separated by ###, you are to write the image description for each page and response on the image description should be in JSON object format.
+
+[story]
+
+Expected format of your response:
+{   
+    imageDescription: [
+        {
+            page: 1,
+            alt: "..."
+        },
+        {
+            page: 2,
+            alt: "..."
+        },
+        {
+            page: 3,
+            alt: "..."
+        },
+        ...
+    ]
+}

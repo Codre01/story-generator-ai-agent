@@ -1,0 +1,199 @@
+<div class="container" id="container">
+    <h1 class="text-center">STORY WRITER</h1>
+    <div class="w-50 mx-auto mt-5">
+        <form method="POST" action="/story" class="form" id="form">
+            {{#if error}}<p class="error text-center text-danger roboto-bold">{{error}}</p>{{/if}}
+
+            <div class="form-group">
+                <div class="input-group">
+                    <label for="use_your_ai_model">Use your AI model: <input type="checkbox" name="use_your_ai_model"
+                            id="use_your_ai_model"></label>
+                </div>
+                <div class="input-group mt-4">
+                    <label for="book_title">
+                        Enter a title:
+                        <input type="text" name="book_title" id="book_title" value="Safety tips of browsing online" class="form-control form-control"
+                            required>
+                    </label>
+                </div>
+                <div class="input-group mt-4">
+                    <label for="book_description">
+                        Enter book description:
+                        <textarea type="text" name="book_description" id="book_description" class="form-control"
+                            required>20 safety tips for children browsing online.</textarea>
+                    </label>
+                </div>
+                <div class="input-group mt-4">
+                    <label for="character">
+                        Enter your story characters:
+                        <textarea type="text" name="character" id="character" class="form-control" required>No characters</textarea>
+                        <small>Separate each character with a comma</small>
+                    </label>
+                </div>
+                <div class="input-group mt-4">
+                    <label for="page_no">
+                        Enter numbers of pages:
+                        <input type="number" name="page_no" id="page_no" value="12" class="form-control">
+                    </label>
+                </div>
+                <div class="d-flex flex-wrap">
+                    <div class="input-group col me-5 mt-4">
+                        <label for="min_age">
+                            Enter minimum age:
+                            <input type="number" name="min_age" id="min_age" value="4" class="form-control">
+                        </label>
+                    </div>
+                    <div class="input-group col ms-5 mt-4">
+                        <label for="max_age">
+                            Enter maximum age:
+                            <input type="number" name="max_age" id="max_age" value="12" class="form-control">
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="form-group" style="display: none;">
+                    <div class="input-group">
+                        <label for="base_url">
+                            API URL:
+                            <input type="text" name="base_url" id="base_url" value="{{base_url}}" class="form-control">
+                        </label>
+                    </div>
+                    <div class="input-group">
+                        <label for="api_key">
+                            Enter your API KEY:
+                            <input type="text" name="api_key" id="api_key" value="{{api_key}}" class="form-control">
+                        </label>
+                    </div>
+                    <div class="input-group">
+                        <label for="model">
+                            AI Model:
+                            <input type="text" name="model" id="model" value="{{model}}" class="form-control">
+                        </label>
+                    </div>
+                </div>
+
+                <p class="text-center mt-2">Do you have your AI model? <a href="/settings"
+                        class="text-decoration-none link" id="settingsLink">Enter your AI model.</a></p>
+                <button type="submit" class="btn btn-primary mt-3 d-block mx-auto" id="submitBtn">Get Story</button>
+
+            </div>
+        </form>
+    </div>
+</div>
+<div style="display: none; width: 100svw; height: 100svh" id="loading" class="justify-content-center align-items-center">
+    <div class="loading" style="" class="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" width="200"
+            height="200" style="shape-rendering: auto; display: block; background: rgb(255, 255, 255);"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g>
+                <g transform="rotate(0 50 50)">
+                    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d6efd">
+                        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s"
+                            begin="-0.9166666666666666s" repeatCount="indefinite"></animate>
+                    </rect>
+                </g>
+                <g transform="rotate(30 50 50)">
+                    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d6efd">
+                        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s"
+                            begin="-0.8333333333333334s" repeatCount="indefinite"></animate>
+                    </rect>
+                </g>
+                <g transform="rotate(60 50 50)">
+                    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d6efd">
+                        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.75s"
+                            repeatCount="indefinite"></animate>
+                    </rect>
+                </g>
+                <g transform="rotate(90 50 50)">
+                    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d6efd">
+                        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s"
+                            begin="-0.6666666666666666s" repeatCount="indefinite"></animate>
+                    </rect>
+                </g>
+                <g transform="rotate(120 50 50)">
+                    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d6efd">
+                        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s"
+                            begin="-0.5833333333333334s" repeatCount="indefinite"></animate>
+                    </rect>
+                </g>
+                <g transform="rotate(150 50 50)">
+                    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d6efd">
+                        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.5s"
+                            repeatCount="indefinite"></animate>
+                    </rect>
+                </g>
+                <g transform="rotate(180 50 50)">
+                    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d6efd">
+                        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s"
+                            begin="-0.4166666666666667s" repeatCount="indefinite"></animate>
+                    </rect>
+                </g>
+                <g transform="rotate(210 50 50)">
+                    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d6efd">
+                        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s"
+                            begin="-0.3333333333333333s" repeatCount="indefinite"></animate>
+                    </rect>
+                </g>
+                <g transform="rotate(240 50 50)">
+                    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d6efd">
+                        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.25s"
+                            repeatCount="indefinite"></animate>
+                    </rect>
+                </g>
+                <g transform="rotate(270 50 50)">
+                    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d6efd">
+                        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s"
+                            begin="-0.16666666666666666s" repeatCount="indefinite"></animate>
+                    </rect>
+                </g>
+                <g transform="rotate(300 50 50)">
+                    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d6efd">
+                        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s"
+                            begin="-0.08333333333333333s" repeatCount="indefinite"></animate>
+                    </rect>
+                </g>
+                <g transform="rotate(330 50 50)">
+                    <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#0d6efd">
+                        <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="0s"
+                            repeatCount="indefinite"></animate>
+                    </rect>
+                </g>
+                <g></g>
+            </g><!-- [ldio] generated by https://loading.io -->
+        </svg>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+<script>
+    document.getElementById('form').addEventListener("submit", ()=>{
+        let container = document.getElementById("container");
+        let loading = document.getElementById("loading");
+        container.style.display = "none"
+        loading.style.display = "flex"
+         
+    })
+
+
+    async function getLocalStorage() {
+        const useYourAI = document.getElementById("use_your_ai_model").checked;
+
+        if (useYourAI) {
+            let settings = localStorage.getItem("settings");
+            if (settings) {
+                settings = JSON.parse(settings);
+                document.getElementById("base_url").value = settings.base_url;
+                document.getElementById("api_key").value = settings.api_key;
+                document.getElementById("model").value = settings.model;
+            }
+        } else {
+            document.getElementById("base_url").value = "";
+            document.getElementById("api_key").value = "";
+            document.getElementById("model").value = "";
+
+        }
+    }
+
+    setInterval(getLocalStorage, 500);
+
+</script>

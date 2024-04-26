@@ -15,41 +15,45 @@
 </head>
 
 <body class="roboto-regular" style="background-color: #696a6b;">
-    <div id="carouselExample" class="carousel slide">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="d-flex justify-content-end align-items-center mb-4">
-                    <form action="/download" method="post"> <button class="btn btn-primary">Download Story</button>
-                    </form>
-                </div>
-                <div id="titlePage" class="card">
-                    <div class="card-body">
-                        <h1>{{story.title}}</h1>
-                        <p>{{story.description}}</p>
+    <div class="container">
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+
+                    <div id="titlePage" class="card mx-auto" style="max-width: 600px;">
+                        <div class="card-body">
+                            <h1>{{story.title}}</h1>
+                            <p>{{story.description}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            {{#each story.story}}
-            <div class="carousel-item">
-                <div class="card storyPage">
-                    <img src="{{image}}" class="card-img-top" alt="{{alt}}">
-                    <div class="card-body">
-                        <h5 class="card-title">Page {{page}}</h5>
-                        <p class="card-text">{{text}}</p>
+                {{#each story.story}}
+                <div class="carousel-item">
+                    <div class="card storyPage mx-auto" style="max-width: 600px;">
+                        <img src="{{image}}" class="card-img-top" alt="{{alt}}">
+                        <div class="card-body">
+                            <h5 class="card-title">Page {{page}}</h5>
+                            <p class="card-text">{{text}}</p>
+                        </div>
                     </div>
                 </div>
+                {{/each}}
             </div>
-            {{/each}}
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+        <div class="d-flex justify-content-center align-items-center mt-4">
+            <form action="/download" method="post"> <button class="btn btn-primary">Download Story</button>
+            </form>
+        </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
@@ -57,31 +61,31 @@
     <script src="/javascripts/Validate.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script>
-       /* document.addEventListener('DOMContentLoaded', function () {
-            var currentPage = 0;
-            var cards = document.querySelectorAll('.card');
-            var numPages = cards.length;
-            for (var i = 0; i < numPages; i++) {
-                cards[i].style.display = 'none';
-            }
-            cards[currentPage].style.display = 'block';
-
-            document.getElementById('next').addEventListener('click', function () {
-                if (currentPage < numPages - 1) {
-                    cards[currentPage].style.display = 'none';
-                    currentPage++;
-                    cards[currentPage].style.display = 'block';
-                }
-            });
-
-            document.getElementById('prev').addEventListener('click', function () {
-                if (currentPage > 0) {
-                    cards[currentPage].style.display = 'none';
-                    currentPage--;
-                    cards[currentPage].style.display = 'block';
-                }
-            });
-        }); */
+        /* document.addEventListener('DOMContentLoaded', function () {
+             var currentPage = 0;
+             var cards = document.querySelectorAll('.card');
+             var numPages = cards.length;
+             for (var i = 0; i < numPages; i++) {
+                 cards[i].style.display = 'none';
+             }
+             cards[currentPage].style.display = 'block';
+ 
+             document.getElementById('next').addEventListener('click', function () {
+                 if (currentPage < numPages - 1) {
+                     cards[currentPage].style.display = 'none';
+                     currentPage++;
+                     cards[currentPage].style.display = 'block';
+                 }
+             });
+ 
+             document.getElementById('prev').addEventListener('click', function () {
+                 if (currentPage > 0) {
+                     cards[currentPage].style.display = 'none';
+                     currentPage--;
+                     cards[currentPage].style.display = 'block';
+                 }
+             });
+         }); */
     </script>
 </body>
 

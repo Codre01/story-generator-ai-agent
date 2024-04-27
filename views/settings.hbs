@@ -10,21 +10,24 @@
                             required>
                     </label>
                 </div>
-                <div class="input-group">
+                <div class="input-group mt-4">
                     <label for="api_key">
                         Enter your API KEY:
                         <input type="text" name="api_key" id="api_key" value="{{api_key}}" class="form-control"
                             required>
                     </label>
                 </div>
-                <div class="input-group">
+                <div class="input-group mt-4">
                     <label for="model">
                         AI Model:
                         <input type="text" name="model" id="model" value="{{model}}" class="form-control" required>
                     </label>
                 </div>
             </div>
-            <button id="submitBtn" class="btn btn-primary mt-3 d-block mx-auto w-25">Save</button>
+            <div class="d-flex justify-content-between align-items-center">
+                <button id="submitBtn" class="btn btn-primary mt-3 w-25"><i class="fa-solid fa-floppy-disk text-light me-2" style="font-size: 16px;"></i>Save</button>
+                <button class="btn btn-danger mt-3 w-25 d-block"><a href="/" class="text-light text-decoration-none d-block" id="cancelBtn"><i class="fa-solid fa-xmark text-light me-2" style="font-size: 16px;"></i>Cancel</a></button>
+            </div>
         </form>
     </div>
 
@@ -64,9 +67,9 @@
         window.location.href = "/"
     }
 
-    async function getLocalStorage(){
+    async function getLocalStorage() {
         let settings = localStorage.getItem("settings");
-        if(settings){
+        if (settings) {
             settings = JSON.parse(settings);
             document.getElementById("base_url").value = settings.base_url;
             document.getElementById("api_key").value = settings.api_key;
